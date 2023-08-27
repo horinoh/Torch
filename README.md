@@ -34,6 +34,7 @@
 - [VS2022プロジェクトテンプレート](https://marketplace.visualstudio.com/items?itemName=YiZhang.libtorch2022)
 	- 新規プロジェクトを作成時に LibTorch テンプレートから作成 - Debug、Release へそれぞれのビルド構成の LibTorch ライブラリパスを指定
 	- Windows SDK のバージョンで怒られる場合は、プロパティ - Windows SDK Version をインストールされているものに合わせる
+- 必須ではないが、C++ Language Standard は ISO C++20 にしておいた
 
 <!--
 - 自前でやる場合
@@ -53,3 +54,18 @@
 	torch.lib
 	~~~
 -->
+
+### MNIST
+- [データ](https://yann.lecun.com/exdb/mnist/)
+	- ダウンロードしたデータのファイル名は XXX.idx になっていると思うので XXX-idx へ変更 (idx 前の 「.」を「-」へ変更)
+	- torch::data::datasets::MNIST() 内では以下のようにファイル名が決め打ちなので、ファイル名を合わせる必要がある
+		~~~
+		constexpr const char* kTrainImagesFilename = "train-images-idx3-ubyte";
+		constexpr const char* kTrainTargetsFilename = "train-labels-idx1-ubyte";
+		constexpr const char* kTestImagesFilename = "t10k-images-idx3-ubyte";
+		constexpr const char* kTestTargetsFilename = "t10k-labels-idx1-ubyte";
+		~~~
+		- 参考 [LibTorchのMNISTコード](https://github.com/pytorch/pytorch/blob/main/torch/csrc/api/src/data/datasets/mnist.cpp
+)
+
+	

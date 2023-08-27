@@ -4,10 +4,9 @@
 #pragma warning(disable:4819)
 #include <torch/torch.h>
 #pragma warning(pop)
-
 #include <iostream>
 
-int main() 
+int main()
 {
 	torch::Device Device([]() { return torch::cuda::is_available() ? torch::kCUDA : torch::kCPU; }());
 	std::cout << "Hello LibTorch" << std::endl;
