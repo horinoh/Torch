@@ -22,6 +22,13 @@
 	- Shit + Enter で「現在の行」や「選択範囲」を実行可能
 		- これを使用した後はターミナル右上の 「ごみ箱」 ボタンを押してクリアしないと ▶ 使用時にエラーになるので注意	
 
+- ライブラリインストール
+~~~
+$pip install japanize_matplotlib
+$pip install torchviz
+$pip install torchinfo
+~~~
+
 ## C++
 - [CUDA 11.8](https://developer.nvidia.com/cuda-11-8-0-download-archive?target_os=Windows&target_arch=x86_64&target_version=11&target_type=exe_network) をインストール
 	- バージョンを Torch に合わせたものをインストールしておく
